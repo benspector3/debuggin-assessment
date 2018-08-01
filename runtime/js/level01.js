@@ -92,7 +92,7 @@ var level01 = function (window) {
                 }
             }
             game.addGameItem(enemy);
-        }
+        
     
     };
 };
