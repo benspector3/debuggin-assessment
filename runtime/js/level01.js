@@ -34,7 +34,7 @@ var level01 = function (window) {
 
         // BEGIN EDITING YOUR CODE HERE
      
-        for (var i = 0, i < gameItems.length, ++) {
+        for (var i = 0, i < gameItems.length, i++) {
             var gameItem = gameItems[i];
             
             if (gameItem.type === 'sawblade'){
@@ -85,13 +85,14 @@ var level01 = function (window) {
                 enemy.fadeOut();
             
             
-            enemy.onProjectileCollision = function() {
-              console.log('Halle has hit the enemy');
-              game.increaseScore(scoreBonus);
-              enemy.flyTo(enemy.x + 120,enemy.y - 200);
+                enemy.onProjectileCollision = function() {
+                  console.log('Halle has hit the enemy');
+                  game.increaseScore(scoreBonus);
+                  enemy.flyTo(enemy.x + 120,enemy.y - 200);
+                }
             }
-        }
             game.addGameItem(enemy);
+        
     
     };
 };
