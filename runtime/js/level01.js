@@ -20,11 +20,11 @@ var level01 = function (window) {
                 {type: 'sawblade',x:1200,y:groundY - 110};
                 {type: 'sawblade',x:1900,y:groundY};
                 {type: 'sawblade',x:2400,y:groundY - 110};
-                {type: 'elf', x:550, y:groundY-50, scoreBonus:100, damage:-10};
-                {type: 'elf', x:1000, y:groundY-50, scoreBonus:100, damage:-10};
-                {type: 'elf', x:1800, y:groundY-50, scoreBonus:100, damage:-10};
-                {type: 'elf', x:2600, y:groundY-50, scoreBonus:100, damage:-10};
-                {type: 'elf', x:3200, y:groundY-50, scoreBonus:100, damage:-10};
+                {type: 'elf', x:550, y:groundY-50};
+                {type: 'elf', x:1000, y:groundY-50};
+                {type: 'elf', x:1800, y:groundY-50};
+                {type: 'elf', x:2600, y:groundY-50};
+                {type: 'elf', x:3200, y:groundY-50};
             ]
         };
         window.levelData = levelData;
@@ -64,7 +64,7 @@ var level01 = function (window) {
         }
         
         // Add Enemies!
-        function createEnemy(type, x, y, scoreBonus, damage) {
+        function createEnemy(x, y) {
             var enemy, enemyImage;
             
             enemy =  game.createGameItem('enemy',25);
@@ -81,18 +81,18 @@ var level01 = function (window) {
             
             enemy.onPlayerCollision = function() {
                 console.log('The enemy has hit Halle');
-                game.changeIntegrity(damage);
+                game.changeIntegrity(-10);
                 enemy.fadeOut();
             
             
                 enemy.onProjectileCollision = function() {
                   console.log('Halle has hit the enemy');
-                  game.increaseScore(scoreBonus);
+                  game.increaseScore(100);
                   enemy.flyTo(enemy.x + 120,enemy.y - 200);
                 }
             }
             game.addGameItem(enemy);
-        
+        }
     
     };
 };
